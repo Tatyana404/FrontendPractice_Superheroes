@@ -14,3 +14,18 @@ export const createHeroError = error => ({
   type: ACTION_TYPES.CREATE_HERO_ERROR,
   error,
 });
+
+export const getHeroRequest = ({ offset, limit }) => ({
+  type: ACTION_TYPES.GET_HERO_REQUEST,
+  payload: { offset, limit },
+});
+
+export const getHeroSuccess = ({ heroes }) => ({
+  type: ACTION_TYPES.GET_HERO_SUCCESS,
+  payload: { heroes },
+});
+
+export const getHeroError = ({ error }) => ({
+  type: ACTION_TYPES.GET_HERO_ERROR,
+  payload: { error },
+});
