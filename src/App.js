@@ -1,11 +1,7 @@
-import './App.css';
+import Superheroes from './pages/Superheroes';
 
-function App() {
-  return (
-    <div>
-     test
-    </div>
-  );
-}
+const App = () => {
+  return <Superheroes />;
+};
 
 export default App;
