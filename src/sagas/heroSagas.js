@@ -7,6 +7,7 @@ export function * getHeroesSaga (action) {
     const {
       data: { data: heroes },
     } = yield API.getHeroes(action.payload);
+
     yield put(HeroActionCreators.getHeroSuccess({ heroes }));
   } catch (error) {
     yield put(HeroActionCreators.getHeroError({ error }));
@@ -20,6 +21,7 @@ export function * createHeroSaga (action) {
         data: [hero],
       },
     } = yield API.createHero(action.values);
+    
     yield put(HeroActionCreators.createHeroSuccess(hero));
   } catch (error) {
     yield put(HeroActionCreators.createHeroError(error));

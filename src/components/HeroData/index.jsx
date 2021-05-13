@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import * as HeroActionCreators from '../../actions/heroCreators';
+import HeroInfo from './HeroInfo';
 
 const HeroData = props => {
   const { heroes, isFetching, error, getHeroesRequest } = props;
-  const [hidden, setHidden] = useState(true);
-  const loadMore = () => getHeroesRequest({ offset: heroes.length });
 
+  const [hidden, setHidden] = useState(true);
+
+  const loadMore = () => getHeroesRequest({ offset: heroes.length });
   const visibility = () => {
     setHidden(hidden => !hidden);
   };
@@ -16,30 +18,14 @@ const HeroData = props => {
   }, []);
 
   return (
-    <section>
-      <button onClick={visibility}>Full info</button>
-      <button onClick={loadMore}>Load more Heroes!</button>
-      <h1>HeroList</h1>
-      {isFetching && 'LOADING...'}
-      {error && error.name}
-      <article>
-        {heroes.map((hero, index) => (
-          <div key={index}>
-            <>
-              <div>{hero.images}</div>
-              <div>{hero.nickName}</div>
-            </>
-            <div hidden={hidden}>
-              <div>{hero.id}</div>
-              <div>{hero.realName}</div>
-              <div>{hero.originDescription}</div>
-              <div>{hero.catchPhrase}</div>
-              <div>{hero.superpowers}</div>
-            </div>
-          </div>
-        ))}
-      </article>
-    </section>
+    <HeroInfo
+      visibility={visibility}
+      loadMore={loadMore}
+      isFetching={isFetching}
+      error={error}
+      heroes={heroes}
+      hidden={hidden}
+    />
   );
 };
 

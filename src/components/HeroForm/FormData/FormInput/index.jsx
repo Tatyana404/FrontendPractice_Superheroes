@@ -1,3 +1,4 @@
+import React from 'react';
 import { Form, Field } from 'formik';
 
 const FormInput = ({ powerName, valuePower, imagePath, valueImage }) => {
@@ -7,13 +8,13 @@ const FormInput = ({ powerName, valuePower, imagePath, valueImage }) => {
       <Field name='realName' placeholder='realName' />
       <Field name='originDescription' placeholder='originDescription' />
       <Field name='catchPhrase' placeholder='catchPhrase' />
-      <input
+      <input //not workers
         name='powerName'
         placeholder='powerName'
         value={powerName}
         onChange={valuePower}
       />
-      <input
+      <input //not workers
         type='file'
         name='imagePath'
         value={imagePath}

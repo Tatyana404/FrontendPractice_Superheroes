@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 import * as HeroActionCreators from '../../actions/heroCreators';
 import FormData from './FormData';
@@ -8,13 +8,13 @@ const HeroForm = props => {
   const [imagePath, setImagePath] = useState([]);
 
   const { createHeroAction } = props;
-  
-  const valuePower = useCallback(e => {  //not workers
-    setPowerName(e.target.value);
+
+  const valuePower = useCallback(e => {
+    setPowerName(e.target.value); //not workers
   }, []);
-  
-  const valueImage = useCallback(e => {  //not workers
-    setImagePath(e.target.value);
+
+  const valueImage = useCallback(e => {
+    setImagePath(e.target.value); //not workers
   }, []);
 
   const onSubmit = (values, formikBag) => {
