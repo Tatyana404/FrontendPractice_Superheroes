@@ -5,10 +5,11 @@ import reducer from '../reducer';
 import rootSaga from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = composeWithDevTools({ trace: true });
 
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
 sagaMiddleware.run(rootSaga);
